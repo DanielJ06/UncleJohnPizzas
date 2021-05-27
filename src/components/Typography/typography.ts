@@ -6,7 +6,7 @@ interface TextProps {
 }
 
 export const Header1 = styled.Text<TextProps>`
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 25px;
   letter-spacing: -0.3px;
   color: ${(props) => (props.color ? props.color : Colors.purple)};
@@ -20,7 +20,7 @@ export const Header2 = styled.Text<TextProps>`
 `
 
 export const Header3 = styled.Text<TextProps>`
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 20px;
   letter-spacing: -0.3px;
   color: ${(props) => (props.color ? props.color : Colors.purple)};
@@ -40,7 +40,7 @@ export const PreTitle = styled.Text<TextProps>`
 `
 
 export const DefaultButtonText = styled.Text<TextProps>`
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 15px;
   letter-spacing: -0.3px;
   color: ${(props) => (props.color ? props.color : Colors.purple)};
