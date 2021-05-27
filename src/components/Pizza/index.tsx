@@ -12,7 +12,7 @@ const Pizza: React.FC<PizzaProps> = ({
   crust
 }) => {
   return (
-    <S.Container width={width} style={{ backgroundColor: '#FFF9' }} >
+    <S.Container width={width} tint="light" intensity={85} >
       <S.WhiteCircle>
         {crust == 'thin' ? (
           <S.Pizza source={require('../../assets/rawPizza.png')} />

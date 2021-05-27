@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { BlurView } from 'expo-blur';
 
 import { Colors, ScreenSize } from '../../utils/styleGuide';
 
@@ -6,7 +7,7 @@ interface ContainerProps {
   width: number
 }
 
-export const Container = styled.View<ContainerProps>`
+export const Container = styled(BlurView)<ContainerProps>`
   justify-content: center;
   align-items: center;
 
