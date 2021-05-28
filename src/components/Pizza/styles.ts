@@ -10,10 +10,11 @@ interface ContainerProps {
 export const Container = styled(BlurView)<ContainerProps>`
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   width: ${props => ScreenSize.width * props.width}px;
   height: ${props => ScreenSize.width * props.width}px;
-  margin-top: 30px;
+  margin-top: 23px;
 
   border-radius: ${(ScreenSize.width / 2)}px;
   padding: 25px;
