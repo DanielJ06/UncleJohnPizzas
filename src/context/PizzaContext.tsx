@@ -4,8 +4,9 @@ interface PizzaContextProps {
   addItem(item: ItemProps): void;
   deleteItem(item: ItemProps): void;
   pizzaItems: ItemProps[];
-  totalPrice: number
-  pizzaSize: number
+  totalPrice: number;
+  pizzaSize: number;
+  pizzaCrust: string
 }
 
 interface ItemProps {
@@ -21,6 +22,7 @@ export const PizzaDetails:React.FC = ({ children }) => {
 
   const [totalPrice, setTotal] = useState(10)
   const [pizzaSize, setPizzaSize] = useState(0.75)
+  const [pizzaCrust, setPizzaCrust] = useState('thin')
   const [pizzaItems, setPizzaItems] = useState<ItemProps[]>([
     {title:'medium', price: 10, type: 'size'}
   ]);
@@ -41,6 +43,7 @@ export const PizzaDetails:React.FC = ({ children }) => {
       pizzaItems[itemProp] = item
       setPizzaItems([...pizzaItems])
     } else if (itemProp !== -1 && item.type === "crust") {
+      setPizzaCrust(item.title)
       pizzaItems[itemProp] = item
       setPizzaItems([...pizzaItems])
     } else {
@@ -56,7 +59,7 @@ export const PizzaDetails:React.FC = ({ children }) => {
 
   return (
     <PizzaContext.Provider
-      value={{ addItem, deleteItem, pizzaItems, totalPrice, pizzaSize }}
+      value={{ addItem, deleteItem, pizzaItems, totalPrice, pizzaSize, pizzaCrust }}
     >
       {children}
     </PizzaContext.Provider>

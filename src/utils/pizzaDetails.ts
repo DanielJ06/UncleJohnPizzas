@@ -10,14 +10,14 @@ export const Crusts = {
 }
 
 export const Toppings = [
-  {position: 0, title: 'peperoni', price: 0.5, type: 'topping'},
-  {position: 1, title: 'mushroom', price: 0.5, type: 'topping'},
-  {position: 2, title: 'black olives', price: 0.5, type: 'topping'},
-  {position: 3, title: 'sausages', price: 0.5, type: 'topping'},
-  {position: 4, title: 'bacon', price: 0.5, type: 'topping'},
-  {position: 5, title: 'extra cheese', price: 0.5, type: 'topping'},
-  {position: 6, title: 'green peppers', price: 0.5, type: 'topping'},
-  {position: 7, title: 'pineapple', price: 0.5, type: 'topping'},
-  {position: 8, title: 'spinach', price: 0.5, type: 'topping'},
-  {position: 9, title: 'onions', price: 0.5, type: 'topping'},
+  {id: 0, title: 'peperoni', price: 0.5, type: 'topping'},
+  {id: 1, title: 'mushroom', price: 0.5, type: 'topping'},
+  {id: 2, title: 'black olives', price: 0.5, type: 'topping'},
+  {id: 3, title: 'sausages', price: 0.5, type: 'topping'},
+  {id: 4, title: 'bacon', price: 0.5, type: 'topping'},
+  {id: 5, title: 'extra cheese', price: 0.5, type: 'topping'},
+  {id: 6, title: 'green peppers', price: 0.5, type: 'topping'},
+  {id: 7, title: 'pineapple', price: 0.5, type: 'topping'},
+  {id: 8, title: 'spinach', price: 0.5, type: 'topping'},
+  {id: 9, title: 'onions', price: 0.5, type: 'topping'},
 ]

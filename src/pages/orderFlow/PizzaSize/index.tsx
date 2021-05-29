@@ -1,5 +1,6 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import Pizza from '../../../components/Pizza';
 import PizzaContext from '../../../context/PizzaContext';
@@ -9,15 +10,14 @@ import {
   Header1, 
   Header2, 
   Header3, 
-  DefaultButtonText, 
   PreTitle, 
   SelectedButtonText 
 } from '../../../components/Typography';
 import * as S from './styles';
 
 const PizzaSize: React.FC = () => {
-
-  const { addItem, pizzaItems, totalPrice, pizzaSize } = useContext(PizzaContext)
+  const navigation = useNavigation()
+  const { addItem, pizzaItems, totalPrice, pizzaSize, pizzaCrust } = useContext(PizzaContext)
 
   // Size props
   const [pizzaInches, setPizzaInches] = useState('12"')
@@ -63,7 +63,7 @@ const PizzaSize: React.FC = () => {
               <Header2 color="#FFF">${totalPrice.toFixed(2)}</Header2>
           </S.HeaderInfo>
 
-          <Pizza width={pizzaSize} crust="thin" />
+          <Pizza width={pizzaSize} crust={pizzaCrust} />
 
           <S.Chip>{pizzaInches}</S.Chip>
         </View>
@@ -90,7 +90,7 @@ const PizzaSize: React.FC = () => {
             </S.OptionsContainer>
           </S.SectionContainer>
 
-          <S.NextButton onPress={() => addItem(Crusts.thick)} >
+          <S.NextButton onPress={() => navigation.navigate('PizzaCrust')} >
             <S.NextGradientContainer>
               <SelectedButtonText color="#FFF">
                 NEXT
