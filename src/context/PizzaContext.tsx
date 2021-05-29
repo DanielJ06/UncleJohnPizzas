@@ -1,30 +1,43 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 interface PizzaContextProps {
   addItem(item: ItemProps): void;
   deleteItem(item: ItemProps): void;
   pizzaItems: ItemProps[];
+  totalPrice: number
+  pizzaSize: number
 }
 
 interface ItemProps {
-  id: number;
   type: string;
   title: string;
   price: number;
+  size?: number;
 }
 
 const PizzaContext = createContext<PizzaContextProps>({} as PizzaContextProps);
 
 export const PizzaDetails:React.FC = ({ children }) => {
 
+  const [totalPrice, setTotal] = useState(10)
+  const [pizzaSize, setPizzaSize] = useState(0.75)
   const [pizzaItems, setPizzaItems] = useState<ItemProps[]>([
-    {id: Math.floor(Math.random() * 50), title:'medium', price: 10, type: 'size'}
+    {title:'medium', price: 10, type: 'size'}
   ]);
+
+  useEffect(() => {
+    function handleCalcTotal() {
+      const fullPrice = pizzaItems.reduce((a, b) => a + b.price, 0)
+      setTotal(fullPrice)
+    }
+    handleCalcTotal()
+  }, [pizzaItems])
 
   function addItem(item:ItemProps) {
     const itemProp = pizzaItems.findIndex(itemProp => itemProp.type === item.type)
 
     if (itemProp !== -1 && item.type === "size") {
+      setPizzaSize(item.size!!)
       pizzaItems[itemProp] = item
       setPizzaItems([...pizzaItems])
     } else if (itemProp !== -1 && item.type === "crust") {
@@ -36,14 +49,14 @@ export const PizzaDetails:React.FC = ({ children }) => {
   }
 
   function deleteItem(item:ItemProps) {
-    const itemProp = pizzaItems.findIndex(itemProp => itemProp.id === item.id)
+    const itemProp = pizzaItems.findIndex(itemProp => itemProp.title === item.title)
     pizzaItems.splice(itemProp, 1)
     setPizzaItems([...pizzaItems])
   }
 
   return (
     <PizzaContext.Provider
-      value={{ addItem, deleteItem, pizzaItems }}
+      value={{ addItem, deleteItem, pizzaItems, totalPrice, pizzaSize }}
     >
       {children}
     </PizzaContext.Provider>
