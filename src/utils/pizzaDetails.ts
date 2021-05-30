@@ -5,8 +5,8 @@ export const Sizes = {
 }
 
 export const Crusts = {
-  thin: {title: 'thin', price: 2, type: 'crust'},
-  thick: {title: 'thick', price: 4, type: 'crust'},
+  thin: {title: 'thin', price: 2, type: 'crust', localPath: require('../assets/rawPizza.png')},
+  thick: {title: 'thick', price: 4, type: 'crust', localPath: require('../assets/thickRawPizza.png')},
 }
 
 export const Toppings = [

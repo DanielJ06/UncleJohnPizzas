@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import PizzaContext from '../../context/PizzaContext';
 
 import * as S from './styles';
 
 interface PizzaProps {
-  width: number
-  crust: string
+  source: string
 }
 
-const Pizza: React.FC<PizzaProps> = ({ 
-  width, 
-  crust
-}) => {
+const Pizza: React.FC<PizzaProps> = ({ source }) => {
+
+  const { pizzaCrust, pizzaSize } = useContext(PizzaContext);
+
+  const [showPizza, setPizza] = useState(pizzaCrust);
+
   return (
-    <S.Container width={width} tint="light" intensity={85} >
+    <S.Container width={pizzaSize} tint="light" intensity={85} >
       <S.WhiteCircle>
-        {crust == 'thin' ? (
+        {source === 'thin' ? (
           <S.Pizza source={require('../../assets/rawPizza.png')} />
         ) : (
           <S.Pizza source={require('../../assets/thickRawPizza.png')} />

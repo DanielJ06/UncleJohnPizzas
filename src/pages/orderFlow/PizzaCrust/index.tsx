@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 
 import Pizza from '../../../components/Pizza';
 import PizzaContext from '../../../context/PizzaContext';
@@ -17,23 +17,31 @@ import * as S from './styles';
 
 const PizzaCrust: React.FC = () => {
 
-  const { addItem, pizzaItems, totalPrice, pizzaSize, pizzaCrust } = useContext(PizzaContext)
+  const { addItem, pizzaItems, totalPrice, pizzaCrust } = useContext(PizzaContext)
 
   // Size props
-  const [extraPrice, setExtraPrice] = useState(pizzaCrust == 'thin' ? 2 : 4)
+  const [extraPrice, setExtraPrice] = useState(4)
   const [selected, setSelected] = useState(pizzaCrust)
 
   const onCrustChangeHandler = (crust: string) => {
     if (crust === 'thin') {
-      setSelected(crust)
-      setExtraPrice(Crusts.thin.price)
       addItem(Crusts.thin)
-    } else {
-      setSelected(crust)
-      setExtraPrice(Crusts.thick.price)
+      setSelected('thin')
+      setExtraPrice(Crusts.thin.price)
+    } else if (crust === 'thick') {
       addItem(Crusts.thick)
+      setSelected('thick')
+      setExtraPrice(Crusts.thick.price)
     }
   }
+
+  useEffect(() => {
+    if (pizzaCrust) {
+      onCrustChangeHandler(pizzaCrust)
+    } else {
+      onCrustChangeHandler("thick")
+    }
+  }, [])
 
   return (
     <S.Container>
@@ -59,7 +67,11 @@ const PizzaCrust: React.FC = () => {
               <Header2 color="#FFF">${totalPrice.toFixed(2)}</Header2>
           </S.HeaderInfo>
 
-          <Pizza width={pizzaSize} crust={pizzaCrust} />
+          {selected === 'thin' ? (
+            <Pizza source='thin' />
+          ) : (
+            <Pizza source='thick' />
+          )}
 
           <S.Chip>+${extraPrice.toFixed(2)}</S.Chip>
         </View>
@@ -81,7 +93,7 @@ const PizzaCrust: React.FC = () => {
             </S.OptionsContainer>
           </S.SectionContainer>
 
-          <S.NextButton onPress={() => addItem(Crusts.thick)} >
+          <S.NextButton>
             <S.NextGradientContainer>
               <SelectedButtonText color="#FFF">
                 NEXT

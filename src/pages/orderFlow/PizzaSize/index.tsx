@@ -17,7 +17,7 @@ import * as S from './styles';
 
 const PizzaSize: React.FC = () => {
   const navigation = useNavigation()
-  const { addItem, pizzaItems, totalPrice, pizzaSize, pizzaCrust } = useContext(PizzaContext)
+  const { addItem, pizzaItems, totalPrice, pizzaCrust } = useContext(PizzaContext)
 
   // Size props
   const [pizzaInches, setPizzaInches] = useState('12"')
@@ -63,7 +63,11 @@ const PizzaSize: React.FC = () => {
               <Header2 color="#FFF">${totalPrice.toFixed(2)}</Header2>
           </S.HeaderInfo>
 
-          <Pizza width={pizzaSize} crust={pizzaCrust} />
+          {pizzaCrust === 'thin' ? (
+            <Pizza source="thin" />
+          ) : (
+            <Pizza source="thick" />
+          )}
 
           <S.Chip>{pizzaInches}</S.Chip>
         </View>

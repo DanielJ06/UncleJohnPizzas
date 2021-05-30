@@ -22,7 +22,7 @@ export const PizzaDetails:React.FC = ({ children }) => {
 
   const [totalPrice, setTotal] = useState(10)
   const [pizzaSize, setPizzaSize] = useState(0.75)
-  const [pizzaCrust, setPizzaCrust] = useState('thin')
+  const [pizzaCrust, setPizzaCrust] = useState('thick')
   const [pizzaItems, setPizzaItems] = useState<ItemProps[]>([
     {title:'medium', price: 10, type: 'size'}
   ]);
