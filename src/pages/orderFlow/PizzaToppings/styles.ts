@@ -55,26 +55,31 @@ export const SectionContainer = styled.View`
   justify-content: space-around; 
   align-items: center;
   align-self: center;
-
-  background-color: #fff;
 `;
 
-export const Selected = styled(LinearGradient).attrs((props: SelectProps)  => ({
-  colors: 
-    props.selected ? 
-    [Colors.red, Colors.orange] : 
-    ['#FFF1', '#FFF1'],
-  start: [0, 0],
-  end: [0.8, 0]
-}))<SelectProps>`
-  padding: 9px 16px;
-  border-radius: 15px;
+export const IngredientContainer = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  background-color: ${Colors.white};
+  elevation: 2;
+  border-radius: 20px;
   overflow: hidden;
+
+  min-width: 230px;
+  padding: 10px;
+  margin: 6px;
+`;
+
+export const IngredientInfo = styled.View`
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const TextButton = styled.Text<SelectProps>`
   font-weight: ${props => props.selected ? 'bold' : 300};
   font-size: 15px;
   letter-spacing: -0.3px;
-  color: ${(props) => (props.selected ? '#FFF' : Colors.purple)};
+  color: ${(props) => (props.selected ? Colors.white : Colors.purple)};
 `;

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Alert, FlatList, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Alert, FlatList, Image, ScrollView, TouchableOpacity, View } from 'react-native';
 import BackgroundGradient from '../../../components/BackgroundGradient';
 
 import * as S from './styles';
@@ -39,6 +39,10 @@ const PizzaToppings: React.FC = () => {
 
     setToppings([...toppings, topping])
     addItem(topping)
+  }
+
+  const isSelected = (id: number) => {
+    return toppings.findIndex(item => item.id === id);
   }
 
   useEffect(() => {
@@ -83,7 +87,7 @@ const PizzaToppings: React.FC = () => {
         </View>
 
         <View>
-          <S.SectionContainer>
+          <S.SectionContainer style={{ backgroundColor: '#FFF9' }} >
             <View style={{ alignItems: 'center', marginBottom: 12 }} >
               <T.Header3>Choose up to<T.Header3 style={{ fontWeight: 'bold' }}> 7 toppings</T.Header3></T.Header3>
               <T.PreTitle color={Colors.lightPurple} >FREE 3 ADD-ONS</T.PreTitle>
@@ -95,15 +99,26 @@ const PizzaToppings: React.FC = () => {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               renderItem={({item}) => (
-                <TouchableOpacity 
-                  style={{ 
-                    backgroundColor: toppings.findIndex((topping) => topping.id === item.id) >= 0 ? Colors.orange : Colors.stroke,
-                    padding: 10, 
-                    margin: 10 
-                  }} 
-                  onPress={() => handleSelectTopping(item)} >
-                  <T.SelectedButtonText>{item.title}</T.SelectedButtonText>
-                </TouchableOpacity>
+                <S.IngredientContainer 
+                  onPress={() => handleSelectTopping(item)} 
+                >
+                  <S.IngredientInfo>
+                    <View style={{ width: 74, height: 74, backgroundColor: '#000', borderRadius: 37 }} />
+                    <View style={{ marginLeft: 12 }} >
+                      <T.SelectedButtonText style={{ textTransform: 'capitalize' }}>
+                        {item.title}
+                      </T.SelectedButtonText>
+                      <T.DefaultButtonText>
+                        +${item.price.toFixed(2)}
+                      </T.DefaultButtonText>
+                    </View>
+                  </S.IngredientInfo>
+                  {isSelected(item.id) >= 0 ? (
+                    <Image style={{ marginStart: 32, marginBottom: 10, marginEnd: 10 }} source={require("../../../assets/SelectedCheck.png")} />
+                  ) : (
+                    <Image style={{ marginStart: 32, marginBottom: 10, marginEnd: 10 }} source={require("../../../assets/DefaultCheck.png")} />
+                  )}
+                </S.IngredientContainer>
               )}
             />
           </S.SectionContainer>
