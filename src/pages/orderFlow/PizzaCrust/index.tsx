@@ -14,9 +14,11 @@ import {
   SelectedButtonText 
 } from '../../../components/Typography';
 import * as S from './styles';
+import { useNavigation } from '@react-navigation/core';
 
 const PizzaCrust: React.FC = () => {
 
+  const navigation = useNavigation()
   const { addItem, pizzaItems, totalPrice, pizzaCrust } = useContext(PizzaContext)
 
   // Size props
@@ -55,7 +57,7 @@ const PizzaCrust: React.FC = () => {
                 <Header1 color="#FFF">Create Your Pizza</Header1>
 
                 <View style={{ maxWidth: '75%', flexDirection: 'row', flexWrap: 'wrap' }} >
-                  {pizzaItems.map(item => (
+                  {pizzaItems.map((item, index) => (
                     <PreTitle key={item.title} color="#FFF" style={{ textTransform: 'uppercase' }}>
                       {item.title}{' '}
                     </PreTitle>
@@ -93,7 +95,7 @@ const PizzaCrust: React.FC = () => {
             </S.OptionsContainer>
           </S.SectionContainer>
 
-          <S.NextButton>
+          <S.NextButton onPress={() => navigation.navigate('PizzaToppings')} >
             <S.NextGradientContainer>
               <SelectedButtonText color="#FFF">
                 NEXT
