@@ -9,9 +9,7 @@ interface PizzaProps {
 
 const Pizza: React.FC<PizzaProps> = ({ source }) => {
 
-  const { pizzaCrust, pizzaSize } = useContext(PizzaContext);
-
-  const [showPizza, setPizza] = useState(pizzaCrust);
+  const { pizzaSize } = useContext(PizzaContext);
 
   return (
     <S.Container width={pizzaSize} tint="light" intensity={85} >
@@ -27,3 +25,4 @@ const Pizza: React.FC<PizzaProps> = ({ source }) => {
 }
 
 export default Pizza;
+
