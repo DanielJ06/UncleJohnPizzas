@@ -1,8 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
+import { Sizes } from "../utils/pizzaDetails";
 
 interface PizzaContextProps {
   addItem(item: ItemProps): void;
   deleteItem(item: ItemProps): void;
+  setTotal(num: number): void;
   pizzaItems: ItemProps[];
   totalPrice: number;
   pizzaSize: number;
@@ -10,6 +12,7 @@ interface PizzaContextProps {
 }
 
 interface ItemProps {
+  id?: number;
   type: string;
   title: string;
   price: number;
@@ -20,11 +23,11 @@ const PizzaContext = createContext<PizzaContextProps>({} as PizzaContextProps);
 
 export const PizzaDetails:React.FC = ({ children }) => {
 
-  const [totalPrice, setTotal] = useState(10)
-  const [pizzaSize, setPizzaSize] = useState(0.75)
+  const [totalPrice, setTotal] = useState(0)
+  const [pizzaSize, setPizzaSize] = useState(Sizes.medium.size)
   const [pizzaCrust, setPizzaCrust] = useState('thick')
   const [pizzaItems, setPizzaItems] = useState<ItemProps[]>([
-    {title:'medium', price: 10, type: 'size'}
+    Sizes.medium
   ]);
 
   useEffect(() => {
@@ -59,7 +62,7 @@ export const PizzaDetails:React.FC = ({ children }) => {
 
   return (
     <PizzaContext.Provider
-      value={{ addItem, deleteItem, pizzaItems, totalPrice, pizzaSize, pizzaCrust }}
+      value={{ addItem, deleteItem, setTotal, pizzaItems, totalPrice, pizzaSize, pizzaCrust }}
     >
       {children}
     </PizzaContext.Provider>
