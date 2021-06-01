@@ -141,11 +141,11 @@ const PizzaToppings: React.FC = () => {
 									onPress={() => handleSelectTopping(item)}
 								>
 									<S.IngredientInfo>
-										<View
+										<Image
+											source={item.path}
 											style={{
 												width: 74,
 												height: 74,
-												backgroundColor: '#000',
 												borderRadius: 37,
 											}}
 										/>
