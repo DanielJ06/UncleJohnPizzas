@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Colors } from '../../utils/styleGuide';
 
 const Container = styled.View`
 	width: 100%;
@@ -9,7 +8,7 @@ const Container = styled.View`
 	align-items: center;
 	padding-left: 20px;
 	padding-right: 20px;
-	background-color: ${Colors.lightGrey};
+	background-color: ${props => props.theme.Colors.lightGrey};
 `;
 
 export default Container;

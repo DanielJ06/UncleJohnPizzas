@@ -1,12 +1,11 @@
 import styled from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
-import { Colors, ScreenSize } from '../../../utils/styleGuide';
 
 export const Container = styled.View`
 	flex: 1;
 	justify-content: space-between;
-	background-color: ${Colors.lightGrey};
+	background-color: ${props => props.theme.Colors.lightGrey};
 `;
 
 interface ContainerProps {
@@ -19,26 +18,26 @@ export const PizzaContainer = styled(BlurView)<ContainerProps>`
 	align-items: center;
 	overflow: hidden;
 
-	width: ${props => ScreenSize.height * props.height}px;
-	height: ${props => ScreenSize.height * props.height}px;
-	top: ${ScreenSize.height * 0.2}px;
-	left: ${ScreenSize.width * 0.2}px;
+	width: ${props => props.theme.ScreenSize.height * props.height}px;
+	height: ${props => props.theme.ScreenSize.height * props.height}px;
+	top: ${props => props.theme.ScreenSize.height * 0.2}px;
+	left: ${props => props.theme.ScreenSize.width * 0.2}px;
 
-	border-radius: ${ScreenSize.height / 2}px;
-	padding: 20px;
+	border-radius: ${props => props.theme.ScreenSize.height / 2}px;
+	padding: 25px;
 
-	background-color: ${Colors.white};
+	background-color: ${props => props.theme.Colors.white};
 `;
 
 export const Details = styled(BlurView)`
-	width: ${ScreenSize.width * 0.7}px;
-
+	width: ${props => props.theme.ScreenSize.width * 0.7}px;
 	margin-bottom: 69px;
+	overflow: hidden;
 
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 20px;
 
-	background-color: ${Colors.white};
+	background-color: ${props => props.theme.Colors.white};
 `;
 
 export const OrderSummary = styled.View`
@@ -49,7 +48,7 @@ export const ItemsContainer = styled.View`
 	width: 100%;
 
 	border-top-width: 1px;
-	border-top-color: ${Colors.stroke};
+	border-top-color: ${props => props.theme.Colors.stroke};
 
 	padding-top: 28px;
 	padding-left: 20px;
@@ -68,12 +67,12 @@ export const WhiteCircle = styled.View`
 	height: 100%;
 
 	padding: 15px;
-	border-radius: 250px;
+	border-radius: ${props => props.theme.ScreenSize.height / 2}px;
 
 	justify-content: center;
 	align-items: center;
 
-	background-color: ${Colors.white};
+	background-color: ${props => props.theme.Colors.white};
 `;
 
 export const Pizza = styled.Image`
@@ -88,13 +87,13 @@ export const TotalSection = styled.View`
 	align-items: center;
 
 	border-top-width: 1px;
-	border-top-color: ${Colors.stroke};
+	border-top-color: ${props => props.theme.Colors.stroke};
 
 	padding: 15px 20px 50px 20px;
 `;
 
 export const NextGradientContainer = styled(LinearGradient).attrs({
-	colors: [Colors.red, Colors.orange],
+	colors: ['#F5313F', '#FFA360'],
 	start: [0, 0],
 	end: [0.8, 0],
 })`

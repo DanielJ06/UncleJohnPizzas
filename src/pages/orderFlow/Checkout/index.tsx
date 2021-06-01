@@ -3,17 +3,18 @@ import React, { useContext, useState } from 'react';
 import { Switch, View } from 'react-native';
 import { FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
+import { ThemeContext } from 'styled-components';
 import BackgroundGradient from '../../../components/BackgroundGradient';
 
 import * as S from './styles';
 import * as T from '../../../components/Typography';
-import { Colors } from '../../../utils/styleGuide';
 import PizzaContext from '../../../context/PizzaContext';
 import ToolBar from '../../../components/ToolBar';
 
 const Checkout: React.FC = () => {
 	const [contactless, setContactLess] = useState(false);
 	const { totalPrice } = useContext(PizzaContext);
+	const { Colors } = useContext(ThemeContext);
 	const navigation = useNavigation();
 
 	return (

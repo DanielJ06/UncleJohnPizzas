@@ -1,17 +1,17 @@
 import styled from 'styled-components/native';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors } from '../../../utils/styleGuide';
 
 export const Container = styled.View`
 	flex: 1;
 	justify-content: space-between;
-	background-color: ${Colors.lightGrey};
+	background-color: ${props => props.theme.Colors.lightGrey};
 `;
 
 export const DeliveryContainer = styled(BlurView)`
 	margin-left: 20px;
 	margin-right: 20px;
+	overflow: hidden;
 
 	border-radius: 20px;
 
@@ -21,6 +21,7 @@ export const DeliveryContainer = styled(BlurView)`
 export const PaymentContainer = styled(BlurView)`
 	margin-left: 20px;
 	margin-right: 20px;
+	overflow: hidden;
 
 	border-radius: 20px;
 
@@ -29,9 +30,9 @@ export const PaymentContainer = styled(BlurView)`
 `;
 
 export const SectionHeader = styled.View`
-	width: 100%;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 
 	padding-left: 25px;
 	padding-right: 15px;
@@ -39,9 +40,9 @@ export const SectionHeader = styled.View`
 
 export const AddInstruction = styled.View`
 	border-top-width: 1px;
-	border-top-color: ${Colors.stroke};
+	border-top-color: ${props => props.theme.Colors.stroke};
 	border-bottom-width: 1px;
-	border-bottom-color: ${Colors.stroke};
+	border-bottom-color: ${props => props.theme.Colors.stroke};
 	padding: 20px 15px 20px 25px;
 	margin-top: 20px;
 `;
@@ -57,14 +58,15 @@ export const ContactContainer = styled.View`
 `;
 
 export const GradientEdit = styled(LinearGradient).attrs({
-	colors: [Colors.red, Colors.orange],
+	colors: ['#F5313F', '#FFA360'],
 	start: [0, 0],
 	end: [0.8, 0],
 })`
 	width: 25px;
 	height: 25px;
+	overflow: hidden;
 
-	border-radius: 50px;
+	border-radius: 13px;
 
 	justify-content: center;
 	align-items: center;
@@ -91,7 +93,7 @@ export const CashbackBadge = styled.View`
 `;
 
 export const NextGradientContainer = styled(LinearGradient).attrs({
-	colors: [Colors.red, Colors.orange],
+	colors: ['#F5313F', '#FFA360'],
 	start: [0, 0],
 	end: [0.8, 0],
 })`

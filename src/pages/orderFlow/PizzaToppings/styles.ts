@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors, ScreenSize } from '../../../utils/styleGuide';
 
 interface SelectProps {
 	selected: boolean;
@@ -10,7 +9,7 @@ interface SelectProps {
 export const Container = styled.View`
 	flex: 1;
 	justify-content: space-between;
-	background-color: ${Colors.lightGrey};
+	background-color: ${props => props.theme.Colors.lightGrey};
 `;
 
 export const Content = styled.View`
@@ -26,7 +25,7 @@ export const HeaderInfo = styled.View`
 `;
 
 export const NextGradientContainer = styled(LinearGradient).attrs({
-	colors: [Colors.red, Colors.orange],
+	colors: ['#F5313F', '#FFA360'],
 	start: [0, 0],
 	end: [0.8, 0],
 })`
@@ -45,7 +44,7 @@ export const NextButton = styled.TouchableOpacity`
 `;
 
 export const SectionContainer = styled.View`
-	width: ${ScreenSize.width - 20}px;
+	width: ${props => props.theme.ScreenSize.width - 20}px;
 	min-height: 134px;
 	border-radius: 20px;
 
@@ -63,7 +62,7 @@ export const IngredientContainer = styled.TouchableOpacity`
 	align-items: flex-end;
 	justify-content: space-between;
 
-	background-color: ${Colors.white};
+	background-color: ${props => props.theme.Colors.white};
 	elevation: 2;
 	border-radius: 20px;
 	overflow: hidden;
@@ -82,7 +81,8 @@ export const TextButton = styled.Text<SelectProps>`
 	font-weight: ${props => (props.selected ? 'bold' : 300)};
 	font-size: 15px;
 	letter-spacing: -0.3px;
-	color: ${props => (props.selected ? Colors.white : Colors.purple)};
+	color: ${props =>
+		props.selected ? props.theme.Colors.white : props.theme.Colors.purple};
 `;
 
 interface ContainerProps {
@@ -94,14 +94,14 @@ export const PizzaContainer = styled(BlurView)<ContainerProps>`
 	align-items: center;
 	overflow: hidden;
 
-	width: ${props => ScreenSize.width * props.width}px;
-	height: ${props => ScreenSize.width * props.width}px;
+	width: ${props => props.theme.ScreenSize.width * props.width}px;
+	height: ${props => props.theme.ScreenSize.width * props.width}px;
 	margin-top: 23px;
 
-	border-radius: ${ScreenSize.width / 2}px;
+	border-radius: ${props => props.theme.ScreenSize.width / 2}px;
 	padding: 25px;
 
-	background-color: ${Colors.white};
+	background-color: ${props => props.theme.Colors.white};
 `;
 
 export const WhiteCircle = styled.View`

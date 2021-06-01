@@ -4,16 +4,17 @@ import { useNavigation } from '@react-navigation/core';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 import { View } from 'react-native';
+import { ThemeContext } from 'styled-components';
 import * as T from '../../../components/Typography';
 import * as S from './styles';
 import BackgroundGradient from '../../../components/BackgroundGradient';
 import PizzaContext from '../../../context/PizzaContext';
-import { Colors } from '../../../utils/styleGuide';
 import ToolBar from '../../../components/ToolBar';
 
 const CheckPizza: React.FC = () => {
 	const navigation = useNavigation();
 	const { pizzaItems, totalPrice } = useContext(PizzaContext);
+	const { Colors } = useContext(ThemeContext);
 
 	return (
 		<S.Container>

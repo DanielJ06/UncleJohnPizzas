@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Colors, ScreenSize } from '../../../utils/styleGuide';
 
 interface SelectProps {
 	selected: boolean;
@@ -9,7 +8,7 @@ interface SelectProps {
 export const Container = styled.View`
 	flex: 1;
 	justify-content: space-between;
-	background-color: ${Colors.lightGrey};
+	background-color: ${props => props.theme.Colors.lightGrey};
 `;
 
 export const Content = styled.View`
@@ -25,7 +24,7 @@ export const HeaderInfo = styled.View`
 `;
 
 export const NextGradientContainer = styled(LinearGradient).attrs({
-	colors: [Colors.red, Colors.orange],
+	colors: ['#F5313F', '#FFA360'],
 	start: [0, 0],
 	end: [0.8, 0],
 })`
@@ -48,8 +47,8 @@ export const Chip = styled.Text`
 	font-weight: bold;
 	letter-spacing: 1px;
 
-	color: ${Colors.purple};
-	background: ${Colors.stroke};
+	color: ${props => props.theme.Colors.purple};
+	background: ${props => props.theme.Colors.stroke};
 
 	margin-top: 15px;
 	padding: 6px 15px;
@@ -58,7 +57,7 @@ export const Chip = styled.Text`
 `;
 
 export const SectionContainer = styled.View`
-	width: ${ScreenSize.width - 20}px;
+	width: ${props => props.theme.ScreenSize.width - 20}px;
 	min-height: 134px;
 	border-radius: 20px;
 
@@ -74,7 +73,7 @@ export const SectionContainer = styled.View`
 `;
 
 export const Selected = styled(LinearGradient).attrs((props: SelectProps) => ({
-	colors: props.selected ? [Colors.red, Colors.orange] : ['#FFF1', '#FFF1'],
+	colors: props.selected ? ['#F5313F', '#FFA360'] : ['#FFF1', '#FFF1'],
 	start: [0, 0],
 	end: [0.8, 0],
 }))<SelectProps>`
@@ -93,5 +92,5 @@ export const TextButton = styled.Text<SelectProps>`
 	font-weight: ${props => (props.selected ? 'bold' : 300)};
 	font-size: 15px;
 	letter-spacing: -0.3px;
-	color: ${props => (props.selected ? '#FFF' : Colors.purple)};
+	color: ${props => (props.selected ? '#FFF' : props.theme.Colors.purple)};
 `;

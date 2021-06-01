@@ -1,8 +1,6 @@
 import styled from 'styled-components/native';
 import { BlurView } from 'expo-blur';
 
-import { Colors, ScreenSize } from '../../utils/styleGuide';
-
 interface ContainerProps {
 	width: number;
 }
@@ -12,14 +10,14 @@ export const Container = styled(BlurView)<ContainerProps>`
 	align-items: center;
 	overflow: hidden;
 
-	width: ${props => ScreenSize.width * props.width}px;
-	height: ${props => ScreenSize.width * props.width}px;
+	width: ${props => props.theme.ScreenSize.width * props.width}px;
+	height: ${props => props.theme.ScreenSize.width * props.width}px;
 	margin-top: 23px;
 
-	border-radius: ${ScreenSize.width / 2}px;
+	border-radius: ${props => props.theme.ScreenSize.width / 2}px;
 	padding: 25px;
 
-	background-color: ${Colors.white};
+	background-color: ${props => props.theme.Colors.white};
 `;
 
 export const WhiteCircle = styled.View`

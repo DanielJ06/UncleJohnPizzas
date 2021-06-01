@@ -1,15 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
+import { ThemeContext } from 'styled-components';
 import Container from './styles';
 
 import * as T from '../../components/Typography';
-import { Colors } from '../../utils/styleGuide';
 
 const ToolBar: React.FC = () => {
 	const navigation = useNavigation();
+	const { Colors } = useContext(ThemeContext);
 
 	return (
 		<Container>

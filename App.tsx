@@ -9,25 +9,26 @@ import Constants from 'expo-constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 
+import { ThemeProvider } from 'styled-components';
 import Routes from './src/routes/order.routes';
 import { PizzaDetails } from './src/context/PizzaContext';
-import { Colors } from './src/utils/styleGuide';
-import Toolbar from './src/components/ToolBar';
+import Theme from './src/utils/styleGuide';
 
 const App = () => (
-	<NavigationContainer>
-		<StatusBar style="dark" backgroundColor={Colors.lightGrey} />
-		<View
-			style={{
-				height: Constants.statusBarHeight,
-				width: '100%',
-			}}
-		/>
-		<Toolbar />
-		<PizzaDetails>
-			<Routes />
-		</PizzaDetails>
-	</NavigationContainer>
+	<ThemeProvider theme={Theme}>
+		<NavigationContainer>
+			<StatusBar style="dark" backgroundColor="#F4F3F9" />
+			<View
+				style={{
+					height: Constants.statusBarHeight,
+					width: '100%',
+				}}
+			/>
+			<PizzaDetails>
+				<Routes />
+			</PizzaDetails>
+		</NavigationContainer>
+	</ThemeProvider>
 );
 
 export default App;

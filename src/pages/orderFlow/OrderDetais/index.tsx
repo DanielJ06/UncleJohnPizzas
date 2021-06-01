@@ -2,17 +2,18 @@
 import React, { useContext } from 'react';
 import { Image, View } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { ThemeContext } from 'styled-components';
 import PizzaContext from '../../../context/PizzaContext';
 
 import * as S from './styles';
 import * as T from '../../../components/Typography';
 import BackgroundGradient from '../../../components/BackgroundGradient';
-import { Colors } from '../../../utils/styleGuide';
 import StepComponent from './StepComponent';
 import ToolBar from '../../../components/ToolBar';
 
 const OrderDetais: React.FC = () => {
 	const { totalPrice } = useContext(PizzaContext);
+	const { Colors } = useContext(ThemeContext);
 
 	const currDay = new Date().getDay();
 

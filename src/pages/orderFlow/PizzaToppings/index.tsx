@@ -2,12 +2,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, FlatList, Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
+import { ThemeContext } from 'styled-components';
 import BackgroundGradient from '../../../components/BackgroundGradient';
 
 import * as S from './styles';
 import * as T from '../../../components/Typography';
 import PizzaContext from '../../../context/PizzaContext';
-import { Colors } from '../../../utils/styleGuide';
 import { Toppings } from '../../../utils/pizzaDetails';
 import ToolBar from '../../../components/ToolBar';
 
@@ -22,6 +22,7 @@ const PizzaToppings: React.FC = () => {
 	const navigation = useNavigation();
 	const { addItem, deleteItem, pizzaItems, totalPrice, pizzaSize } =
 		useContext(PizzaContext);
+	const { Colors } = useContext(ThemeContext);
 
 	const [toppings, setToppings] = useState<ToppingProp[]>([]);
 
