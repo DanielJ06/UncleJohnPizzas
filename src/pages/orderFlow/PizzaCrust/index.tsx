@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
@@ -25,20 +26,17 @@ const PizzaCrust: React.FC = () => {
 	const [extraPrice, setExtraPrice] = useState(4);
 	const [selected, setSelected] = useState(pizzaCrust);
 
-	const onCrustChangeHandler = useCallback(
-		(crust: string) => {
-			if (crust === 'thin') {
-				addItem(Crusts.thin);
-				setSelected('thin');
-				setExtraPrice(Crusts.thin.price);
-			} else if (crust === 'thick') {
-				addItem(Crusts.thick);
-				setSelected('thick');
-				setExtraPrice(Crusts.thick.price);
-			}
-		},
-		[addItem],
-	);
+	const onCrustChangeHandler = (crust: string) => {
+		if (crust === 'thin') {
+			addItem(Crusts.thin);
+			setSelected('thin');
+			setExtraPrice(Crusts.thin.price);
+		} else if (crust === 'thick') {
+			addItem(Crusts.thick);
+			setSelected('thick');
+			setExtraPrice(Crusts.thick.price);
+		}
+	};
 
 	useEffect(() => {
 		if (pizzaCrust) {
@@ -46,7 +44,7 @@ const PizzaCrust: React.FC = () => {
 		} else {
 			onCrustChangeHandler('thick');
 		}
-	}, [onCrustChangeHandler, pizzaCrust]);
+	}, []);
 
 	return (
 		<S.Container>
