@@ -47,7 +47,7 @@ const CheckPizza: React.FC = () => {
 						{pizzaItems.map(item => (
 							<S.Items key={item.title}>
 								<T.DefaultButtonText style={{ textTransform: 'capitalize' }}>
-									{item.title}
+									{item.title} {item.type === 'topping' ? '' : item.type}
 								</T.DefaultButtonText>
 								<T.PreTitle>${item.price.toFixed(2)}</T.PreTitle>
 							</S.Items>
@@ -60,7 +60,7 @@ const CheckPizza: React.FC = () => {
 					</S.TotalSection>
 				</S.Details>
 
-				<S.NextButton onPress={() => navigation.navigate('PizzaCrust')}>
+				<S.NextButton onPress={() => navigation.navigate('Checkout')}>
 					<S.NextGradientContainer>
 						<T.SelectedButtonText color="#FFF">
 							Confirm Pizza
