@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
-import { Switch, View, ViewPropTypes } from 'react-native';
+import { Switch, View } from 'react-native';
 import { FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 import BackgroundGradient from '../../../components/BackgroundGradient';
@@ -102,14 +102,17 @@ const Checkout: React.FC = () => {
 					</S.CardContainer>
 
 					<S.CashbackBadge>
-						<T.PreTitle style={{ textTransform: 'uppercase' }} color="#57C168">
+						<T.PreTitle
+							style={{ textTransform: 'uppercase' }}
+							color={Colors.green}
+						>
 							10% Cashback Applied
 						</T.PreTitle>
 					</S.CashbackBadge>
 				</S.PaymentContainer>
 			</View>
 
-			<S.NextButton onPress={() => navigation.navigate('Checkout')}>
+			<S.NextButton onPress={() => navigation.navigate('OrderDetais')}>
 				<S.NextGradientContainer>
 					<T.SelectedButtonText color="#FFF">Place Order</T.SelectedButtonText>
 				</S.NextGradientContainer>

@@ -7,6 +7,7 @@ import PizzaCrust from '../pages/orderFlow/PizzaCrust';
 import PizzaToppings from '../pages/orderFlow/PizzaToppings';
 import CheckPizza from '../pages/orderFlow/CheckPizza';
 import Checkout from '../pages/orderFlow/Checkout';
+import OrderDetais from '../pages/orderFlow/OrderDetais';
 
 const OrderStack = createStackNavigator();
 
@@ -23,6 +24,7 @@ const OrderRoutes = () => (
 		<OrderStack.Screen name="PizzaToppings" component={PizzaToppings} />
 		<OrderStack.Screen name="CheckPizza" component={CheckPizza} />
 		<OrderStack.Screen name="Checkout" component={Checkout} />
+		<OrderStack.Screen name="OrderDetais" component={OrderDetais} />
 	</OrderStack.Navigator>
 );
 

@@ -8,6 +8,8 @@ export const Colors = {
 	stroke: '#DADAE5',
 	lightGrey: '#F4F3F9',
 	white: '#FFFFFF',
+	green: '#57C168',
+	lightGreen: '#DEF3E1',
 };
 
 const { width, height } = Dimensions.get('window');
