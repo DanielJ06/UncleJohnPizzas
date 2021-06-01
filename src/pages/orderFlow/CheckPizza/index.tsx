@@ -9,6 +9,7 @@ import * as S from './styles';
 import BackgroundGradient from '../../../components/BackgroundGradient';
 import PizzaContext from '../../../context/PizzaContext';
 import { Colors } from '../../../utils/styleGuide';
+import ToolBar from '../../../components/ToolBar';
 
 const CheckPizza: React.FC = () => {
 	const navigation = useNavigation();
@@ -16,7 +17,7 @@ const CheckPizza: React.FC = () => {
 
 	return (
 		<S.Container>
-			<View style={{ height: 48, width: '100%' }} />
+			<ToolBar />
 			<BackgroundGradient bgHeight={0.2} />
 
 			<S.PizzaContainer height={0.7} tint="light" intensity={85}>

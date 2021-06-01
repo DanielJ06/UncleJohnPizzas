@@ -9,6 +9,7 @@ import * as T from '../../../components/Typography';
 import PizzaContext from '../../../context/PizzaContext';
 import { Colors } from '../../../utils/styleGuide';
 import { Toppings } from '../../../utils/pizzaDetails';
+import ToolBar from '../../../components/ToolBar';
 
 interface ToppingProp {
 	id: number;
@@ -59,7 +60,7 @@ const PizzaToppings: React.FC = () => {
 
 	return (
 		<S.Container>
-			<View style={{ height: 48, width: '100%' }} />
+			<ToolBar />
 			<BackgroundGradient />
 
 			<S.Content>

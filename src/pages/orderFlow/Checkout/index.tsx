@@ -9,6 +9,7 @@ import * as S from './styles';
 import * as T from '../../../components/Typography';
 import { Colors } from '../../../utils/styleGuide';
 import PizzaContext from '../../../context/PizzaContext';
+import ToolBar from '../../../components/ToolBar';
 
 const Checkout: React.FC = () => {
 	const [contactless, setContactLess] = useState(false);
@@ -17,7 +18,7 @@ const Checkout: React.FC = () => {
 
 	return (
 		<S.Container>
-			<View style={{ height: 48, width: '100%' }} />
+			<ToolBar />
 			<BackgroundGradient bgHeight={0.25} />
 
 			<View style={{ flex: 1 }}>

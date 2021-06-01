@@ -10,7 +10,7 @@ const stepIndicatorStyles = {
 	currentStepIndicatorSize: 30,
 	stepIndicatorFinishedColor: Colors.red,
 	stepIndicatorUnFinishedColor: Colors.lightGrey,
-	stepIndicatorCurrentColor: Colors.orange,
+	stepIndicatorCurrentColor: '#f5313eba',
 	stepIndicatorLabelFinishedColor: Colors.white,
 	stepIndicatorLabelCurrentColor: Colors.white,
 	stepIndicatorLabelUnFinishedColor: Colors.stroke,

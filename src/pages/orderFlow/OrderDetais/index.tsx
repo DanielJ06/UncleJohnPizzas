@@ -9,6 +9,7 @@ import * as T from '../../../components/Typography';
 import BackgroundGradient from '../../../components/BackgroundGradient';
 import { Colors } from '../../../utils/styleGuide';
 import StepComponent from './StepComponent';
+import ToolBar from '../../../components/ToolBar';
 
 const OrderDetais: React.FC = () => {
 	const { totalPrice } = useContext(PizzaContext);
@@ -17,7 +18,7 @@ const OrderDetais: React.FC = () => {
 
 	return (
 		<S.Container>
-			<View style={{ height: 48, width: '100%' }} />
+			<ToolBar />
 			<BackgroundGradient bgHeight={0.25} />
 
 			<View style={{ padding: 20 }}>

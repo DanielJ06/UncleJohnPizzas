@@ -14,6 +14,7 @@ import {
 	SelectedButtonText,
 } from '../../../components/Typography';
 import * as S from './styles';
+import ToolBar from '../../../components/ToolBar';
 
 const PizzaSize: React.FC = () => {
 	const navigation = useNavigation();
@@ -42,7 +43,7 @@ const PizzaSize: React.FC = () => {
 
 	return (
 		<S.Container>
-			<View style={{ height: 48, width: '100%' }} />
+			<ToolBar />
 			<BackgroundGradient />
 
 			<S.Content>
