@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import PizzaSize from '../pages/orderFlow/PizzaSize';
 import PizzaCrust from '../pages/orderFlow/PizzaCrust';
 import PizzaToppings from '../pages/orderFlow/PizzaToppings';
+import CheckPizza from '../pages/orderFlow/CheckPizza';
 
 const OrderStack = createStackNavigator();
 
@@ -19,6 +20,7 @@ const OrderRoutes = () => (
 		<OrderStack.Screen name="PizzaSize" component={PizzaSize} />
 		<OrderStack.Screen name="PizzaCrust" component={PizzaCrust} />
 		<OrderStack.Screen name="PizzaToppings" component={PizzaToppings} />
+		<OrderStack.Screen name="CheckPizza" component={CheckPizza} />
 	</OrderStack.Navigator>
 );
 

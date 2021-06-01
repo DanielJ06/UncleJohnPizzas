@@ -3,7 +3,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { Colors, ScreenSize } from '../../utils/styleGuide';
 
-const BackgroundGradient: React.FC = () => (
+interface BackgrounProps {
+	bgHeight?: number;
+}
+
+const BackgroundGradient: React.FC<BackgrounProps> = ({ bgHeight }) => (
 	<LinearGradient
 		colors={[Colors.red, Colors.orange]}
 		start={[0, 0]}
@@ -12,7 +16,7 @@ const BackgroundGradient: React.FC = () => (
 			position: 'absolute',
 			top: 48,
 			width: ScreenSize.width,
-			height: ScreenSize.height * 0.4,
+			height: bgHeight ? ScreenSize.height * bgHeight : ScreenSize.height * 0.4,
 		}}
 	/>
 );
