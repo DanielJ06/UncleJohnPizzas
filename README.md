@@ -1,4 +1,4 @@
-# 🍕 UncleJohnPizzas (Challenge 2 - Tauria Pizza App Challenge)
+# 🍕 Uncle John Pizzas
 
 [![Author](https://img.shields.io/badge/author-DanielJ06-7FCD91?style=flat-square)](https://github.com/danielj06)
 [![Languages](https://img.shields.io/github/languages/count/DanielJ06/UncleJohnPizzas?color=%7FCD91&style=flat-square)](#)
